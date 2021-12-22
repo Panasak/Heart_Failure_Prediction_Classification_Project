@@ -33,11 +33,11 @@ I looked at the distributions of the data and the value counts for the various c
 ![alt text](https://github.com/Panasak/Heart_Failure_Prediction_Classification_Project/blob/main/EDA/restingecg.png)
 ## Model Building
 First I transformed the categorical variables into dummy variables. I also split the data into train and test sets with a test size of 30%
-I tired two different models and evaluated them using Classification Report (Precision, Recall, F-1 score, Accuracy Score). 
+I tired two different models and evaluated them using Classification Report (Precision, Recall, f1 score, Accuracy Score). 
 I tried two different models:
 * **Logistic Regression** - Baseline for the model
 * **Random Forest** - Because of the sparse data from the many categorical variables. I thought a normalized regression like rfc would be effective
 ## Model Performance
 The Logistic Regression model outperformed the other apprach slightly on the test and validation sets
-* **Linear Regression:** Accuracy score = 0.87, precision = 0.93, recall = 0.88, f-1 score = 0.90
-* **Random Forest:** Accuracy score = 0.88, precision = 0.90, recall = 0.89, f-1 score = 0.89
+* **Linear Regression:** Accuracy score = 0.87, precision = 0.93, recall = 0.88, f1 score = 0.90
+* **Random Forest:** Accuracy score = 0.88, precision = 0.90, recall = 0.89, f1 score = 0.89
