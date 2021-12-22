@@ -1,64 +1,43 @@
-# Thailand House Prices Predictor: Project Overview
-This project uses multiple linear regression to predict the house prices in Thailand
-* Create a tool that estamates house prices in Thailand to help home buyers negotiate the prices when they are buying a house
-* Scraped 2400 houses from baan.kaidee.com using python and selenium
-* Engineered features from text of each house description to quantify the value the sellers put on views, schools, universities, and housing assosication
-* Optimized Linear, Lasso, and Random Forest Regression using GridsearchCV to reach the best model
-* Built a client facing API using flask
+# Heart Failure Prediction Classification: Project Overview
+This project uses multiple logistic regression to predict heart failure rate
+* Create a tool that predicts the rate of heart failure to help people with heart condition assess and predict their heart condition
+* Use Logistic Regression and Random Forest Classifier
 ## Code and Resources Used
 * **Python Version:** 3.7
-* **Packages:** pandas, numpy, matplotlib, seaborn, selenium, flask, json, pickle
-* **For Web Framework Requirements:** `pip install -r requirements.txt`
-* **Scaper Article:** https://medium.com/@ben.sturm/scraping-house-listing-data-using-selenium-and-beautiful-soup-1cbb94ba9492
-* **Flask Productization:** https://towardsdatascience.com/productionize-a-machine-learning-model-with-flask-and-heroku-8201260503d2
-## Web Scraping
-Tweaked the web scraper from the article above to scrape 2400 house postings from baan.kaidee.com. With each job, we got the following:
-* House Listing Titles
-* House Listing Descriptions
-* Addresses
-* Areas in Square Yard
-* Number of Bedrooms
-* Number of Bathrooms
-* Prices
-* Listing Dates
-* Status (New or Second Hand)
+* **Packages:** pandas, numpy, matplotlib, seaborn
+* **Kaggle:** https://www.kaggle.com/fedesoriano/heart-failure-prediction
+## About the data
+The data contain the following columns:
+* Age: age of the patient [years]
+* Sex: sex of the patient [M: Male, F: Female]
+* ChestPainType: chest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]
+* RestingBP: resting blood pressure [mm Hg]
+* Cholesterol: serum cholesterol [mm/dl]
+* FastingBS: fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]
+* RestingECG: resting electrocardiogram results [Normal: Normal, ST: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV), LVH: showing probable or definite left ventricular hypertrophy by Estes' criteria]
+* MaxHR: maximum heart rate achieved [Numeric value between 60 and 202]
+* ExerciseAngina: exercise-induced angina [Y: Yes, N: No]
+* Oldpeak: oldpeak = ST [Numeric value measured in depression]
+* ST_Slope: the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
+* HeartDisease: output class [1: heart disease, 0: Normal]
 ## Data Cleaning
-After scraping the data. I needed to clean it up so that it was usable for our model. I made the followinng changes and created the following variables:
-* Parsed numeric data out of prices
-* Made columns for subdistricts, districts, and provinces
-* Removed rows without bedrooms or bathrooms
-* Transformed listing datas or numerical value
-* Made columns for it different keywords were listed in the descriptions:
-  * school
-  * univeristy
-  * airport
-  * city
-  * housing estate
-  * view
-* Made a columns for titles and descriptions lengths
+I needed to clean the data up so that it was usable for our model. I made the followinng changes and created the following variables:
+* Replaced 0 values in cholesterol with the median
+* Removed rows with 0 value in restingECG
+* Transformed categorical data into dummies valuables
 ## EDA
 I looked at the distributions of the data and the value counts for the various categorical variables. Below are a few highlights from the pivot tables.
 
-![alt text](https://github.com/Panasak/Thailand_House_Prices_Predictor/blob/main/data_clean/sactter_plot.png)
-![alt text](https://github.com/Panasak/Thailand_House_Prices_Predictor/blob/main/data_clean/heat_plot.png)
-![alt text](https://github.com/Panasak/Thailand_House_Prices_Predictor/blob/main/data_clean/box_plot.png)
-![alt text](https://github.com/Panasak/Thailand_House_Prices_Predictor/blob/main/data_clean/bar_plot.png)
+![alt text](https://github.com/Panasak/Heart_Failure_Prediction_Classification_Project/blob/main/EDA/age.png)
+![alt text](https://github.com/Panasak/Heart_Failure_Prediction_Classification_Project/blob/main/EDA/chestpaintype.png)
+![alt text](https://github.com/Panasak/Heart_Failure_Prediction_Classification_Project/blob/main/EDA/restingecg.png)
 ## Model Building
-First I transformed the categorical variables into dummy variables. I also split the data into train and test sets with a test size of 33%
-I tired three different models and evaluated them using Mean Absolute Error. I chose MAE because it is relatively easy to interpret and outliers aren't particularly bad in for this type of model.
-I tried three different models:
-* **Multiple Linear Regression** - Baseline for the model
-* **Lasso Regression** - Because of the sparse data from the many categorical variables. I thought a normalized regression like lasso would be effective
-* **Random Forest** - Again, with the sparsity associated with the data, I thought that this would be a good fit
+First I transformed the categorical variables into dummy variables. I also split the data into train and test sets with a test size of 30%
+I tired two different models and evaluated them using Classification Report (Precision, Recall, F-1 score, Accuracy Score). 
+I tried two different models:
+* **Logistic Regression** - Baseline for the model
+* **Random Forest** - Because of the sparse data from the many categorical variables. I thought a normalized regression like rfc would be effective
 ## Model Performance
-The Random Forest model outperformed the other approaches on the test and validation sets
-* **Random Forest:** MAE = 4411561.95
-* **Linear Regression:** MAE = 441239550501459.25
-* **Lasso Regression:** MAE = 6423036.02
-## Productization
-In this step, I built a flask API endpoint that was hosted on a local webserver by following along with the TDS tutorial in the reference section above. The API endpoint takes in a request with a list of values for a house listing and return an estimated price.
-
-
-
-
-
+The Logistic Regression model outperformed the other apprach slightly on the test and validation sets
+* **Linear Regression:** Accuracy score = 0.87, precision = 0.93, recall = 0.88, f-1 score = 0.90
+* **Random Forest:** Accuracy score = 0.88, precision = 0.90, recall = 0.89, f-1 score = 0.89
