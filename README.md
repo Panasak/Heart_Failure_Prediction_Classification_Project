@@ -4,7 +4,7 @@ This project uses multiple logistic regression to predict heart failure rate
 * Use Logistic Regression and Random Forest Classifier
 ## Code and Resources Used
 * **Python Version:** 3.7
-* **Packages:** pandas, numpy, matplotlib, seaborn
+* **Packages:** pandas, numpy, matplotlib, seaborn, scikit learn
 * **Kaggle:** https://www.kaggle.com/fedesoriano/heart-failure-prediction
 ## About the data
 The data contain the following columns:
