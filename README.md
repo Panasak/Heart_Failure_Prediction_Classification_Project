@@ -39,5 +39,5 @@ I tried two different models:
 * **Random Forest** - Because of the sparse data from the many categorical variables. I thought a normalized regression like rfc would be effective
 ## Model Performance
 The Logistic Regression model outperformed the other apprach slightly on the test and validation sets
-* **Linear Regression:** Accuracy score = 0.87, precision = 0.93, recall = 0.88, f1 score = 0.90
+* **Logistic Regression:** Accuracy score = 0.87, precision = 0.93, recall = 0.88, f1 score = 0.90
 * **Random Forest:** Accuracy score = 0.88, precision = 0.90, recall = 0.89, f1 score = 0.89
