@@ -26,7 +26,7 @@ else:
         sex = st.sidebar.selectbox('Sex',('M','F'))
         resting_ecg = st.sidebar.selectbox('Resting electrocardiogram',('Normal','ST','LVH'))
         exercise_agina = st.sidebar.selectbox('Exercise-induced angina',('Y','N'))
-        st_slope = st.sidebar.selectbox('ST slope',('Up','Flate','Down'))
+        st_slope = st.sidebar.selectbox('ST slope',('Up','Flat','Down'))
         age = st.sidebar.slider('Age (year)', 1,100, 60)
         resting_bp = st.sidebar.slider('Resting blood pressure (mm/Hg)', 0,200,125)
         cholesterol= st.sidebar.slider('Cholesterol (mm/dl)', 0,600,200)
