@@ -13,7 +13,7 @@ Data obtained from the [Heart Failure Prediction Dataset](https://www.kaggle.com
 st.sidebar.header('User Input Features')
 
 st.sidebar.markdown("""
-[Example CSV input file](https://github.com/panasak/Heart_Failure_Prediction_Project-Classification-/blob/main/data_example.csv)
+[Example CSV input file](https://raw.githubusercontent.com/panasak/Heart_Failure_Prediction_Project-Classification-/main/data_example.csv)
 """)
 
 # Collects user input features into dataframe
