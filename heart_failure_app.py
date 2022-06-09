@@ -22,17 +22,17 @@ if uploaded_file is not None:
     input_df = pd.read_csv(uploaded_file)
 else:
     def user_input_features():
-        chest_pain_types = st.sidebar.selectbox('Chest Pain Type',('ATA','NAP','ASY'))
+        chest_pain_types = st.sidebar.selectbox('Chest Pain Type',('ATA','NAP','ASY'), index =1)
         sex = st.sidebar.selectbox('Sex',('M','F'), index=1)
         resting_ecg = st.sidebar.selectbox('Resting electrocardiogram',('Normal','ST','LVH'))
-        exercise_agina = st.sidebar.selectbox('Exercise-induced angina',('Y','N'))
-        st_slope = st.sidebar.selectbox('ST slope',('Up','Flat','Down'))
+        exercise_agina = st.sidebar.selectbox('Exercise-induced angina',('Y','N'), index=1)
+        st_slope = st.sidebar.selectbox('ST slope',('Up','Flat','Down'), index =1)
         age = st.sidebar.slider('Age (year)', 1,100, 49)
-        resting_bp = st.sidebar.slider('Resting blood pressure (mm/Hg)', 0,200,125)
-        cholesterol= st.sidebar.slider('Cholesterol (mm/dl)', 0,600,200)
-        fasting_bs = st.sidebar.slider('Fasting blood sugar (g)', 0,1,1)
-        max_hr = st.sidebar.slider('Maximum heart rate', 60,202,80)
-        old_peak = st.sidebar.slider('Oldpeak', -3,7,2)
+        resting_bp = st.sidebar.slider('Resting blood pressure (mm/Hg)', 0,200,160)
+        cholesterol= st.sidebar.slider('Cholesterol (mm/dl)', 0,600,180)
+        fasting_bs = st.sidebar.slider('Fasting blood sugar (g)', 0,1,0)
+        max_hr = st.sidebar.slider('Maximum heart rate', 60,202,156)
+        old_peak = st.sidebar.slider('Oldpeak', -3,7,1)
         data = {'Age': age,
                 'Sex': sex,
                 'ChestPainType': chest_pain_types,
