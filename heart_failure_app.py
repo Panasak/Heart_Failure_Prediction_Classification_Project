@@ -13,7 +13,7 @@ Data obtained from the [Heart Failure Prediction Dataset](https://www.kaggle.com
 st.sidebar.header('User Input Features')
 
 st.sidebar.markdown("""
-[Example CSV input file](https://raw.githubusercontent.com/dataprofessor/data/master/penguins_example.csv)
+[Example CSV input file](https://github.com/panasak/Heart_Failure_Prediction_Project-Classification-/blob/main/data_example.csv)
 """)
 
 # Collects user input features into dataframe
@@ -22,7 +22,7 @@ if uploaded_file is not None:
     input_df = pd.read_csv(uploaded_file)
 else:
     def user_input_features():
-        chest_pain_types = st.sidebar.selectbox('Chest Pain Type',('ATA','NAP','ASY'), index =1)
+        chest_pain_types = st.sidebar.selectbox('Chest Pain Type',('ATA','NAP','ASY','TA'), index =1)
         sex = st.sidebar.selectbox('Sex',('M','F'), index=1)
         resting_ecg = st.sidebar.selectbox('Resting electrocardiogram',('Normal','ST','LVH'))
         exercise_agina = st.sidebar.selectbox('Exercise-induced angina',('Y','N'), index=1)
