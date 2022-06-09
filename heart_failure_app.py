@@ -77,8 +77,9 @@ prediction_proba = load_clf.predict_proba(df)
 
 
 st.subheader('Prediction')
-heart_disease = np.array(['Heart disease','Normal'])
-st.write(heart_disease[prediction])
+st.write(prediction)
+#heart_disease = np.array(['Heart disease','Normal'])
+#st.write(heart_disease[prediction])
 
 st.subheader('Prediction Probability')
 st.write(prediction_proba)
