@@ -23,11 +23,11 @@ if uploaded_file is not None:
 else:
     def user_input_features():
         chest_pain_types = st.sidebar.selectbox('Chest Pain Type',('ATA','NAP','ASY'))
-        sex = st.sidebar.selectbox('Sex',('M','F'))
+        sex = st.sidebar.selectbox('Sex',('M','F'), index=1)
         resting_ecg = st.sidebar.selectbox('Resting electrocardiogram',('Normal','ST','LVH'))
         exercise_agina = st.sidebar.selectbox('Exercise-induced angina',('Y','N'))
         st_slope = st.sidebar.selectbox('ST slope',('Up','Flat','Down'))
-        age = st.sidebar.slider('Age (year)', 1,100, 60)
+        age = st.sidebar.slider('Age (year)', 1,100, 49)
         resting_bp = st.sidebar.slider('Resting blood pressure (mm/Hg)', 0,200,125)
         cholesterol= st.sidebar.slider('Cholesterol (mm/dl)', 0,600,200)
         fasting_bs = st.sidebar.slider('Fasting blood sugar (g)', 0,1,1)
