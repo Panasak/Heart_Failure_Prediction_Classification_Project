@@ -1,5 +1,6 @@
 # Heart Failure Prediction Classification: Project Overview
-This project uses multiple logistic regression to predict heart failure rate
+**See application:** [link](https://share.streamlit.io/panasak/heart_failure_prediction_project-classification-/main/heart_failure_app.py)
+* This project uses multiple logistic regression to predict heart failure rate
 * Create a tool that predicts the rate of heart failure to help people with heart condition assess and predict their heart condition
 * Use Logistic Regression and Random Forest Classifier
 ## Code and Resources Used
