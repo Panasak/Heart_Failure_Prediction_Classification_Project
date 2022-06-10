@@ -56,7 +56,11 @@ df = pd.concat([input_df,hearts],axis=0)
 
 # Encoding of ordinal features
 # https://www.kaggle.com/pratik1120/penguin-dataset-eda-classification-and-clustering
-df = pd.get_dummies(data=df,drop_first=True)
+encode = ['Sex','ChestPainType','RestingECG','ExerciseAngina','ST_Slope']
+for col in encode:
+    dummy = pd.get_dummies(df[col], prefix=col)
+    df = pd.concat([df,dummy], axis=1)
+    del df[col]
 df = df[:1] # Selects only the first row (the user input data)
 
 # Displays the user input features
